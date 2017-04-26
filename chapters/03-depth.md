@@ -16,7 +16,7 @@ jQuery + Backbone + xxx
 
 纠结于 事务一致 锁 
 
-Spring + Mybatis
+Spring + Mybatis + Flyway
 
 数据库 + ORM + MVC
 
