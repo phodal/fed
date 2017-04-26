@@ -88,6 +88,11 @@ Node.js 应用也是一个不错的选择
 
 寻找合作的工作 -> 起步
 
+事实上，按照『技术成熟曲线』理论，前端正在进入低谷期。而人工智能才是，现在，乃至未来一段时间的 IT 高薪领域。
+
+![Gartner 技术成熟曲线](gartner-hype-cycle.png)
+
+如果你真的喜欢前端，那么：
 
 Just do it!
 
@@ -138,7 +143,7 @@ jQuery + Backbone + xxx
 
 纠结于 事务一致 锁 
 
-Spring + Mybatis
+Spring + Mybatis + Flyway
 
 数据库 + ORM + MVC
 
