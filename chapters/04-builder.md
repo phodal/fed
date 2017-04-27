@@ -8,6 +8,10 @@ Yeoman 生成脚手架
 
 ## 构建工具
 
+取决于你所使用的技术栈
+
+SASS、SCSS 因不同的情况而异
+
 webpack
 
 npm
@@ -15,6 +19,12 @@ npm
 grunt / gulp
 
 ## 构建流程
+
+### 自动刷新
+
+### 转译
+
+### 预处理
 
 [11:43:58]  ionic-app-scripts 1.3.4
 [11:43:58]  watch started ...
@@ -41,4 +51,4 @@ grunt / gulp
 [11:44:29]  build dev finished in 31.57 s
 [11:44:29]  watch ready in 31.69 s
 
-
+##
