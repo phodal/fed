@@ -112,6 +112,12 @@ grunt / gulp
 
 ## 构建流程
 
+LiveReload
+
+Bower
+
+concat -> init -> lint -> min -> qunit -> server -> test -> watch
+
 ### 自动刷新
 
 ### 转译
