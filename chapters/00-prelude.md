@@ -15,7 +15,7 @@
  - 你可以使用 React VR 来编写 VR 应用
  - 等等
 
-这种时候，前端指的是，我们使用** 样式（类CSS） + 类JavaScript + 模板（HTML、XML等）**编写的应用。
+这种时候，前端指的是，我们使用 **样式（类CSS） + 类JavaScript + 模板（HTML、XML等** 编写的应用。
 
 如果那些用 JavaScript 编写的应用，也划分到前端的范畴，那么：
 
