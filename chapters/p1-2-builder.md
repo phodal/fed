@@ -26,12 +26,11 @@ Bower
 
 concat -> init -> lint -> min -> qunit -> server -> test -> watch
 
-### 自动刷新
+### 构建示例
 
-### 转译
+如下是混合应用框架 Ionic 执行 ``ionic serve`` 时的启动日志：
 
-### 预处理
-
+```
 [11:43:58]  ionic-app-scripts 1.3.4
 [11:43:58]  watch started ...
 [11:43:58]  build dev started ...
@@ -46,8 +45,6 @@ concat -> init -> lint -> min -> qunit -> server -> test -> watch
 [11:44:03]  preprocess finished in 132 ms
 [11:44:03]  webpack started ...
 [11:44:03]  copy finished in 5.49 s
-
-
 [11:44:26]  webpack finished in 22.94 s
 [11:44:26]  sass started ...
 [11:44:29]  sass finished in 3.21 s
@@ -56,5 +53,16 @@ concat -> init -> lint -> min -> qunit -> server -> test -> watch
 [11:44:29]  lint started ...
 [11:44:29]  build dev finished in 31.57 s
 [11:44:29]  watch ready in 31.69 s
+```
+
+这个过程中，它会完成如下的步骤：
+
+watch -> build dev -> clean -> copy -> transpile -> preprocess (deeplinks) -> webpack (copy) -> sass -> postprocess -> build dev 
+
+### 自动刷新
+
+### 转译
+
+### 预处理
 
 ##

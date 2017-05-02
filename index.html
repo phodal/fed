@@ -38,6 +38,7 @@
 <li><a href="#为什么构建很重要">为什么构建很重要</a></li>
 <li><a href="#构建工具">构建工具</a></li>
 <li><a href="#构建流程">构建流程</a><ul>
+<li><a href="#构建示例">构建示例</a></li>
 <li><a href="#自动刷新">自动刷新</a></li>
 <li><a href="#转译">转译</a></li>
 <li><a href="#预处理">预处理</a></li>
@@ -45,7 +46,7 @@
 <li><a href="#section"></a></li>
 </ul></li>
 <li><a href="#什么是前端的架构能力">什么是前端的架构能力</a><ul>
-<li><a href="#构架实践">构架实践</a><ul>
+<li><a href="#标准的-spa-构架实践">“标准”的 SPA 构架实践</a><ul>
 <li><a href="#前后端分离">前后端分离</a></li>
 <li><a href="#无状态-api">无状态 API</a></li>
 </ul></li>
@@ -54,6 +55,10 @@
 </ul></li>
 <li><a href="#styleguide">StyleGuide</a></li>
 <li><a href="#演进">演进</a></li>
+<li><a href="#最佳实践框架">最佳实践：框架</a><ul>
+<li><a href="#jquery-tinymce">jQuery + TinyMCE</a></li>
+<li><a href="#jquery-vue">jQuery + Vue</a></li>
+</ul></li>
 </ul></li>
 <li><a href="#常见的架构模式与设计模式">常见的架构模式与设计模式</a><ul>
 <li><a href="#散弹式架构---jquery">散弹式架构 -&gt; jQuery</a></li>
@@ -200,21 +205,43 @@
 <p>LiveReload</p>
 <p>Bower</p>
 <p>concat -&gt; init -&gt; lint -&gt; min -&gt; qunit -&gt; server -&gt; test -&gt; watch</p>
+<h3 id="构建示例">构建示例</h3>
+<p>如下是混合应用框架 Ionic 执行 <code>ionic serve</code> 时的启动日志：</p>
+<pre><code>[11:43:58]  ionic-app-scripts 1.3.4
+[11:43:58]  watch started ...
+[11:43:58]  build dev started ...
+[11:43:58]  clean started ...
+[11:43:58]  clean finished in 1 ms
+[11:43:58]  copy started ...
+[11:43:58]  transpile started ...
+[11:44:03]  transpile finished in 5.17 s
+[11:44:03]  preprocess started ...
+[11:44:03]  deeplinks started ...
+[11:44:03]  deeplinks finished in 132 ms
+[11:44:03]  preprocess finished in 132 ms
+[11:44:03]  webpack started ...
+[11:44:03]  copy finished in 5.49 s
+[11:44:26]  webpack finished in 22.94 s
+[11:44:26]  sass started ...
+[11:44:29]  sass finished in 3.21 s
+[11:44:29]  postprocess started ...
+[11:44:29]  postprocess finished in 85 ms
+[11:44:29]  lint started ...
+[11:44:29]  build dev finished in 31.57 s
+[11:44:29]  watch ready in 31.69 s</code></pre>
+<p>这个过程中，它会完成如下的步骤：</p>
+<p>watch -&gt; build dev -&gt; clean -&gt; copy -&gt; transpile -&gt; preprocess (deeplinks) -&gt; webpack (copy) -&gt; sass -&gt; postprocess -&gt; build dev</p>
 <h3 id="自动刷新">自动刷新</h3>
 <h3 id="转译">转译</h3>
 <h3 id="预处理">预处理</h3>
-<p>[11:43:58] ionic-app-scripts 1.3.4 [11:43:58] watch started … [11:43:58] build dev started … [11:43:58] clean started … [11:43:58] clean finished in 1 ms [11:43:58] copy started … [11:43:58] transpile started … [11:44:03] transpile finished in 5.17 s [11:44:03] preprocess started … [11:44:03] deeplinks started … [11:44:03] deeplinks finished in 132 ms [11:44:03] preprocess finished in 132 ms [11:44:03] webpack started … [11:44:03] copy finished in 5.49 s</p>
-<p>[11:44:26] webpack finished in 22.94 s [11:44:26] sass started … [11:44:29] sass finished in 3.21 s [11:44:29] postprocess started … [11:44:29] postprocess finished in 85 ms [11:44:29] lint started … [11:44:29] build dev finished in 31.57 s [11:44:29] watch ready in 31.69 s</p>
 <h2 id="section"></h2>
 <h1 id="什么是前端的架构能力">什么是前端的架构能力</h1>
 <blockquote>
 <p>远离最佳实践，除非你能接受其带来的成本</p>
 </blockquote>
-<p>提炼出核心技术，</p>
-<p>对于大的公司来讲，都会要求拥有自己的核心技术。</p>
-<p>在网上，各式各样的前端开发最佳实践层出不穷，</p>
-<p>最意味着，在某些方面已经是到了极致。</p>
-<h2 id="构架实践">构架实践</h2>
+<p>当我们谈及『前端的架构』时，我们讨论的是复杂前端应用的架构——如果只是一个 jQuery + Bootstrap 完成的应用，那么它的架构想必是『散弹式』的应用，没有复杂的逻辑可言。</p>
+<h2 id="标准的-spa-构架实践">“标准”的 SPA 构架实践</h2>
+<p>复杂的前端应用，多数是 SPA（单页面应用）</p>
 <h3 id="前后端分离">前后端分离</h3>
 <h3 id="无状态-api">无状态 API</h3>
 <h2 id="workflow">workflow</h2>
@@ -227,6 +254,19 @@
 <h2 id="演进">演进</h2>
 <p>当前技术栈，未来技术栈，切换。</p>
 <p>选用合适的策略，并保证没有问题。</p>
+<h2 id="最佳实践框架">最佳实践：框架</h2>
+<p>jQuery 在简单的前端页面里，仍然是最好的选择。</p>
+<h3 id="jquery-tinymce">jQuery + TinyMCE</h3>
+<h3 id="jquery-vue">jQuery + Vue</h3>
+<p>不久前，我需要一个 UI 框架及前端框架来实现简单的逻辑功能，并且它还应该相当的小。因此，我首先排队了 jQuery + Bootstrap，它们在体积上不太符合我的要求。</p>
+<ul>
+<li>发出一个 Ajax 请求，验证 Token</li>
+<li>如果返回的 Token 是有效的，则生成</li>
+</ul>
+<p>提炼出核心技术，</p>
+<p>对于大的公司来讲，都会要求拥有自己的核心技术。</p>
+<p>在网上，各式各样的前端开发最佳实践层出不穷，</p>
+<p>最意味着，在某些方面已经是到了极致。</p>
 <h1 id="常见的架构模式与设计模式">常见的架构模式与设计模式</h1>
 <h2 id="散弹式架构---jquery">散弹式架构 -&gt; jQuery</h2>
 <h2 id="分层结构-mvc">分层结构 MVC</h2>

@@ -141,12 +141,11 @@ Bower
 
 concat -> init -> lint -> min -> qunit -> server -> test -> watch
 
-### 自动刷新
+### 构建示例
 
-### 转译
+如下是混合应用框架 Ionic 执行 ``ionic serve`` 时的启动日志：
 
-### 预处理
-
+```
 [11:43:58]  ionic-app-scripts 1.3.4
 [11:43:58]  watch started ...
 [11:43:58]  build dev started ...
@@ -161,8 +160,6 @@ concat -> init -> lint -> min -> qunit -> server -> test -> watch
 [11:44:03]  preprocess finished in 132 ms
 [11:44:03]  webpack started ...
 [11:44:03]  copy finished in 5.49 s
-
-
 [11:44:26]  webpack finished in 22.94 s
 [11:44:26]  sass started ...
 [11:44:29]  sass finished in 3.21 s
@@ -171,6 +168,17 @@ concat -> init -> lint -> min -> qunit -> server -> test -> watch
 [11:44:29]  lint started ...
 [11:44:29]  build dev finished in 31.57 s
 [11:44:29]  watch ready in 31.69 s
+```
+
+这个过程中，它会完成如下的步骤：
+
+watch -> build dev -> clean -> copy -> transpile -> preprocess (deeplinks) -> webpack (copy) -> sass -> postprocess -> build dev 
+
+### 自动刷新
+
+### 转译
+
+### 预处理
 
 ##
 
@@ -178,19 +186,13 @@ concat -> init -> lint -> min -> qunit -> server -> test -> watch
 
 > 远离最佳实践，除非你能接受其带来的成本
 
-提炼出核心技术，
+当我们谈及『前端的架构』时，我们讨论的是复杂前端应用的架构——如果只是一个 jQuery + Bootstrap 完成的应用，那么它的架构想必是『散弹式』的应用，没有复杂的逻辑可言。
 
-对于大的公司来讲，都会要求拥有自己的核心技术。
+## “标准”的 SPA 构架实践
 
-在网上，各式各样的前端开发最佳实践层出不穷，
-
-最意味着，在某些方面已经是到了极致。
-
-## 构架实践
+复杂的前端应用，多数是 SPA（单页面应用） 
 
 ### 前后端分离
-
-
 
 ### 无状态 API
 
@@ -208,6 +210,28 @@ concat -> init -> lint -> min -> qunit -> server -> test -> watch
 当前技术栈，未来技术栈，切换。
 
 选用合适的策略，并保证没有问题。
+
+
+## 最佳实践：框架
+
+jQuery 在简单的前端页面里，仍然是最好的选择。
+
+### jQuery + TinyMCE
+
+### jQuery + Vue
+
+不久前，我需要一个 UI 框架及前端框架来实现简单的逻辑功能，并且它还应该相当的小。因此，我首先排队了 jQuery + Bootstrap，它们在体积上不太符合我的要求。
+
+ - 发出一个 Ajax 请求，验证 Token
+ - 如果返回的 Token 是有效的，则生成
+
+提炼出核心技术，
+
+对于大的公司来讲，都会要求拥有自己的核心技术。
+
+在网上，各式各样的前端开发最佳实践层出不穷，
+
+最意味着，在某些方面已经是到了极致。
 
 # 常见的架构模式与设计模式
 
