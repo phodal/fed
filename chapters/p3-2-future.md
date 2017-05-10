@@ -14,3 +14,7 @@ Redux
 
 ## 跨平台
 
+Angular 可以移动应用和桌面Web应用，可是它并没有像 React 有那么广泛的用途。
+
+React、React VR、React Native
+
