@@ -193,7 +193,7 @@ Yeoman 生成脚手架
 
 ## 为什么构建很重要
 
-![前端应用的开发流程](../images/basic-workflow.png)
+![前端应用的开发流程](../images/basic-workflow.png )
 
 ## 构建工具
 
@@ -208,6 +208,8 @@ npm
 grunt / gulp
 
 ## 构建流程
+
+![前端构建流程](../images/build-workflow.png)
 
 LiveReload
 
