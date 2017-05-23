@@ -187,13 +187,21 @@ JavaScript是一门易上手的语言，也充满了相当多的糟粕的用法�
 
 # 构建系统：资深分界线
 
-Yeoman 生成脚手架
+Yeoman 生成脚手架，并且现在的主流前端框架都提供了相似的工
 
 打包 -> 压缩 -> 上传 -> 解压 -> 替换 -> 重启
 
+重点在于：提高工作效率
+
 ## 为什么构建很重要
 
+过去我们打开编辑器、浏览器、修改代码、刷新页面，如下图所示：
+
 ![前端应用的开发流程](images/basic-workflow.png )
+
+这个过程仍然没有发生太大的变化，只是很多的步骤都被自动化了：
+
+我们只需要修改代码，诸如 watchman 这样的工具就检测到修改，而 Browsersync 则可以帮助我们自动刷新页面。
 
 ## 构建工具
 
@@ -256,7 +264,6 @@ watch -> build dev -> clean -> copy -> transpile -> preprocess (deeplinks) -> we
 
 ### 预处理
 
-##
 
 # 什么是前端的架构能力
 
@@ -275,6 +282,12 @@ watch -> build dev -> clean -> copy -> transpile -> preprocess (deeplinks) -> we
 ## workflow
 
 ### 前后端分离的工作方式
+
+实现上，它主要关注点是：API 的设计。API 设计应该由前端开发者来驱动的。后台只提供前端想要的数据，而不是反过来的。后台提供数据，前端从中选择需要的内容。
+
+ - 使用文档规范 API
+ - 契约测试：基于持续集成与自动化测试
+ - 前端测试与 API 适配器
 
 ## 风格指南：StyleGuide
 
@@ -297,6 +310,8 @@ watch -> build dev -> clean -> copy -> transpile -> preprocess (deeplinks) -> we
 
 
 ## 最佳实践：框架
+
+在这个领域，并不存在最佳的实践。首先的问题是，要找出我们真正想实现的功能，在这之后再去完成下一个步骤。而不是先找行业中最好的实践，再将这些实践应用
 
 jQuery 在简单的前端页面里，仍然是最好的选择。
 
@@ -332,7 +347,11 @@ mock: 行为，预期方法被调用。
 ### ui 测试
 
 
-截图测试，
+### 截屏测试，
+
+对于那些 UI 改动较小的系统来说，这
+
+而我们知道页面截图是一个不可比对的，
 
 react-test-render， Virtual Dom 测试
 
@@ -371,7 +390,17 @@ fetch、ajax、RxJS 从 API 处获取到数据
 
 双向绑定，即观察者模式，又可以称为发布订阅模式（Publish/Subscribe）
 
-## shared repository -> local storage
+## 数据通讯
+
+除了常规的数据获取，还有在不同的框架间传输数据，如 React Native 和 WebView 的 postMessage，Cordova 的 WebView 与原生插件间
+
+### 消息通讯
+
+### 数据通讯：shared repository
+
+其他消息通讯
+
+### 数据通讯：local storage  
 
 ??? black board
 
@@ -387,9 +416,6 @@ fetch、ajax、RxJS 从 API 处获取到数据
 
 > 与性能相比，可读性更加重要——绝大多数的软件，并不是写完就结束周期了。当然，倒掉的创业公司的软件除外。
 
- - 组内技术活动
- - 花时间投入练习
- - 假想项目的重构
 
 ## 有意图的提升
 

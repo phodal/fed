@@ -60,7 +60,6 @@
 <li><a href="#转译">转译</a></li>
 <li><a href="#预处理">预处理</a></li>
 </ul></li>
-<li><a href="#section"></a></li>
 </ul></li>
 <li><a href="#什么是前端的架构能力">什么是前端的架构能力</a><ul>
 <li><a href="#标准的-spa-构架实践">“标准”的 SPA 构架实践</a><ul>
@@ -81,6 +80,7 @@
 <li><a href="#自动化测试加快上线流程">自动化测试加快上线流程</a><ul>
 <li><a href="#测试-1">测试</a></li>
 <li><a href="#ui-测试">ui 测试</a></li>
+<li><a href="#截屏测试">截屏测试，</a></li>
 </ul></li>
 <li><a href="#自动构建">自动构建</a></li>
 <li><a href="#自动化部署">自动化部署</a></li>
@@ -90,7 +90,11 @@
 <li><a href="#分层结构-mv">分层结构 MV*</a></li>
 <li><a href="#处理数据-pipe-and-filter">处理数据 pipe and filter</a></li>
 <li><a href="#数据显示-观察者模式">数据显示 观察者模式</a></li>
-<li><a href="#shared-repository---local-storage">shared repository -&gt; local storage</a></li>
+<li><a href="#数据通讯">数据通讯</a><ul>
+<li><a href="#消息通讯">消息通讯</a></li>
+<li><a href="#数据通讯shared-repository">数据通讯：shared repository</a></li>
+<li><a href="#数据通讯local-storage">数据通讯：local storage</a></li>
+</ul></li>
 </ul></li>
 <li><a href="#软技能篇">软技能篇</a></li>
 <li><a href="#在做业务的过程中提升技术">在做业务的过程中提升技术</a><ul>
@@ -252,12 +256,16 @@
 <p>寻找心流</p>
 <p>这些方法适用于大部分的人，但是不一定适合你。你只需要寻找到适合你的路，然后学习。</p>
 <h1 id="构建系统资深分界线">构建系统：资深分界线</h1>
-<p>Yeoman 生成脚手架</p>
+<p>Yeoman 生成脚手架，并且现在的主流前端框架都提供了相似的工</p>
 <p>打包 -&gt; 压缩 -&gt; 上传 -&gt; 解压 -&gt; 替换 -&gt; 重启</p>
+<p>重点在于：提高工作效率</p>
 <h2 id="为什么构建很重要">为什么构建很重要</h2>
+<p>过去我们打开编辑器、浏览器、修改代码、刷新页面，如下图所示：</p>
 <figure>
 <img src="images/basic-workflow.png" alt="前端应用的开发流程" /><figcaption>前端应用的开发流程</figcaption>
 </figure>
+<p>这个过程仍然没有发生太大的变化，只是很多的步骤都被自动化了：</p>
+<p>我们只需要修改代码，诸如 watchman 这样的工具就检测到修改，而 Browsersync 则可以帮助我们自动刷新页面。</p>
 <h2 id="构建工具">构建工具</h2>
 <p>取决于你所使用的技术栈</p>
 <p>SASS、SCSS 因不同的情况而异</p>
@@ -300,7 +308,6 @@
 <h3 id="自动刷新">自动刷新</h3>
 <h3 id="转译">转译</h3>
 <h3 id="预处理">预处理</h3>
-<h2 id="section"></h2>
 <h1 id="什么是前端的架构能力">什么是前端的架构能力</h1>
 <blockquote>
 <p>远离最佳实践，除非你能接受其带来的成本</p>
@@ -312,6 +319,12 @@
 <h3 id="无状态-api">无状态 API</h3>
 <h2 id="workflow">workflow</h2>
 <h3 id="前后端分离的工作方式">前后端分离的工作方式</h3>
+<p>实现上，它主要关注点是：API 的设计。API 设计应该由前端开发者来驱动的。后台只提供前端想要的数据，而不是反过来的。后台提供数据，前端从中选择需要的内容。</p>
+<ul>
+<li>使用文档规范 API</li>
+<li>契约测试：基于持续集成与自动化测试</li>
+<li>前端测试与 API 适配器</li>
+</ul>
 <h2 id="风格指南styleguide">风格指南：StyleGuide</h2>
 <p>与之前的构建系统相比，StyleGuide 便是一种无法用工具强制执行的规范。尽管可以采用工具来做类似的事情，但是并非应该强制去做。</p>
 <ul>
@@ -325,6 +338,7 @@
 <p>后台不能满足一些需求，考虑使用 BFF 吗</p>
 <p>选用合适的策略，并保证没有问题。</p>
 <h2 id="最佳实践框架">最佳实践：框架</h2>
+<p>在这个领域，并不存在最佳的实践。首先的问题是，要找出我们真正想实现的功能，在这之后再去完成下一个步骤。而不是先找行业中最好的实践，再将这些实践应用</p>
 <p>jQuery 在简单的前端页面里，仍然是最好的选择。</p>
 <h3 id="jquery-tinymce">jQuery + TinyMCE</h3>
 <h3 id="jquery-vue">jQuery + Vue</h3>
@@ -344,7 +358,9 @@
 <p>stub: 结果，返回预期的结果。</p>
 <p>mock: 行为，预期方法被调用。</p>
 <h3 id="ui-测试">ui 测试</h3>
-<p>截图测试，</p>
+<h3 id="截屏测试">截屏测试，</h3>
+<p>对于那些 UI 改动较小的系统来说，这</p>
+<p>而我们知道页面截图是一个不可比对的，</p>
 <p>react-test-render， Virtual Dom 测试</p>
 <h2 id="自动构建">自动构建</h2>
 <p>在之前的构建系统一节里，我们讲了 xx。剩下要做的就是生成打包好的源码</p>
@@ -363,7 +379,12 @@
 <p>当我们从服务器</p>
 <h2 id="数据显示-观察者模式">数据显示 观察者模式</h2>
 <p>双向绑定，即观察者模式，又可以称为发布订阅模式（Publish/Subscribe）</p>
-<h2 id="shared-repository---local-storage">shared repository -&gt; local storage</h2>
+<h2 id="数据通讯">数据通讯</h2>
+<p>除了常规的数据获取，还有在不同的框架间传输数据，如 React Native 和 WebView 的 postMessage，Cordova 的 WebView 与原生插件间</p>
+<h3 id="消息通讯">消息通讯</h3>
+<h3 id="数据通讯shared-repository">数据通讯：shared repository</h3>
+<p>其他消息通讯</p>
+<h3 id="数据通讯local-storage">数据通讯：local storage</h3>
 <p>??? black board</p>
 <h1 id="软技能篇">软技能篇</h1>
 <h1 id="在做业务的过程中提升技术">在做业务的过程中提升技术</h1>
@@ -375,11 +396,6 @@
 <blockquote>
 <p>与性能相比，可读性更加重要——绝大多数的软件，并不是写完就结束周期了。当然，倒掉的创业公司的软件除外。</p>
 </blockquote>
-<ul>
-<li>组内技术活动</li>
-<li>花时间投入练习</li>
-<li>假想项目的重构</li>
-</ul>
 <h2 id="有意图的提升">有意图的提升</h2>
 <p>在一家大的公司里，不同的人总会有不同的运气：</p>
 <p>运气好的人遇上一个好的项目，升职加薪，从此就走上了人生的巅峰。 运气差的人摊上一个差的项目，升不了职，少加了薪，并且还获得不了技术成长。 我刚毕业那会儿，所在团队的主要工作是，维护一个『又老又旧』的系统。比起写业务代码更不幸的是，我们的主要工作是修 Bug，bug，buG, bUg。</p>

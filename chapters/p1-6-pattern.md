@@ -25,6 +25,16 @@ fetch、ajax、RxJS 从 API 处获取到数据
 
 双向绑定，即观察者模式，又可以称为发布订阅模式（Publish/Subscribe）
 
-## shared repository -> local storage
+## 数据通讯
+
+除了常规的数据获取，还有在不同的框架间传输数据，如 React Native 和 WebView 的 postMessage，Cordova 的 WebView 与原生插件间
+
+### 消息通讯
+
+### 数据通讯：shared repository
+
+其他消息通讯
+
+### 数据通讯：local storage  
 
 ??? black board
