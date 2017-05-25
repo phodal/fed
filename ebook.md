@@ -351,9 +351,11 @@ mock: 行为，预期方法被调用。
 
 对于那些 UI 改动较小的系统来说，这
 
-而我们知道页面截图是一个不可比对的，
+而我们知道页面截图尽管可以作为版本管理的一部分，但是一个不可比对的结果
 
-react-test-render， Virtual Dom 测试
+而诸如，react-test-render， Virtual Dom 测试
+
+那么，对于普通的 HTML 结构的
 
 ## 自动构建
 
