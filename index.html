@@ -87,7 +87,9 @@
 <li><a href="#截屏测试">截屏测试，</a></li>
 </ul></li>
 <li><a href="#自动构建">自动构建</a></li>
-<li><a href="#自动化部署">自动化部署</a></li>
+<li><a href="#自动化部署">自动化部署</a><ul>
+<li><a href="#持续集成">持续集成</a></li>
+</ul></li>
 </ul></li>
 <li><a href="#前端应用的架构与设计模式">前端应用的架构与设计模式</a><ul>
 <li><a href="#散弹式架构---jquery">散弹式架构 -&gt; jQuery</a></li>
@@ -409,15 +411,40 @@
 <p>stub: 结果，返回预期的结果。</p>
 <p>mock: 行为，预期方法被调用。</p>
 <h3 id="ui-测试">ui 测试</h3>
+<p>React Test Renderer</p>
+<pre><code>&lt;Modal
+  animationType=&quot;fade&quot;
+  hardwareAccelerated={false}
+  onRequestClose={[Function]}
+  transparent={true}
+  visible={false}
+&gt;
+  &lt;View&gt;
+    &lt;View
+      style={
+        Object {
+          &quot;alignItems&quot;: &quot;center&quot;,
+          &quot;backgroundColor&quot;: &quot;rgba(0,0,0,.1)&quot;,
+          &quot;height&quot;: 1334,
+          &quot;justifyContent&quot;: &quot;center&quot;,
+        }
+      }
+    &gt;
+  ...    </code></pre>
 <h3 id="截屏测试">截屏测试，</h3>
 <p>对于那些 UI 改动较小的系统来说，这</p>
 <p>而我们知道页面截图尽管可以作为版本管理的一部分，但是一个不可比对的结果</p>
 <p>而诸如，react-test-render， Virtual Dom 测试</p>
 <p>那么，对于普通的 HTML 结构的</p>
+<figure>
+<img src="images/PhantomCSS.png" alt="PhantomCSS" /><figcaption>PhantomCSS</figcaption>
+</figure>
 <h2 id="自动构建">自动构建</h2>
 <p>在之前的构建系统一节里，我们讲了 xx。剩下要做的就是生成打包好的源码</p>
+<p>Gulp、Grunt</p>
 <h2 id="自动化部署">自动化部署</h2>
 <p>只需要一些 持续集成 的基础，如 Jenkins</p>
+<h3 id="持续集成">持续集成</h3>
 <h1 id="前端应用的架构与设计模式">前端应用的架构与设计模式</h1>
 <h2 id="散弹式架构---jquery">散弹式架构 -&gt; jQuery</h2>
 <p>项目达到一定的程度，jQuery 便有些难以管理，我们不知道哪个地方还操作了 DOM。修改了 A 处的 selector，可能会影响 B 处的 selector。</p>
