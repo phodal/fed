@@ -190,12 +190,9 @@ JavaScript是一门易上手的语言，也充满了相当多的糟粕的用法�
 
 如 Redux，最早是运行的 React.js 之上。Angular 2 出来了后，有了 xx。小程序出来后，有了 xx。
 
-同理于此，
-
-如在出现微信小程序的一两个星期内，我写了几篇原理相关的文章，并介绍了如何创建一个属于自己的小程序应用框架 WINV。又或者是我在对 Virtual Dom 有一定的了解后，便深入 Virtual Dom 的代码，写了一个基于 Virtual Dom 的测试辅助框架。
+同理于此，当出现微信小程序的一两个星期内，我写了几篇原理相关的文章，并介绍了如何创建一个属于自己的小程序应用框架 WINV。又或者是我在对 Virtual Dom 有一定的了解后，便深入 Virtual Dom 的代码，写了一个基于 Virtual Dom 的测试辅助框架 [Luffa](http://github.com/phodal/luffa)。
 
 而这些，只有我们理解他们的原理之后，我们才可能做到这样的事。
-
 
 ## 小结
 
@@ -666,6 +663,10 @@ Redux
 Angular 可以移动应用和桌面Web应用，可是它并没有像 React 有那么广泛的用途。
 
 React、React VR、React Native
+
+## UI 生成
+
+过去有 DreamWeaver 这样的软件，现在也有一些强大的 UI 工具，可以直接将设计转化为代码。
 
 
 # 转型前端指南
