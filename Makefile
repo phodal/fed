@@ -1,6 +1,6 @@
 include_dir=build
 source=chapters/*.md
-title='前端进阶'
+title='前端进阶指南'
 filename='ebook'
 
 

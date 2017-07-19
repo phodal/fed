@@ -1,53 +1,127 @@
-# markdown一步生成电子书: 支持PDF、Mobi、EPUB格式
+前端进阶指南
+===
 
-### 简介
+> 《我的职业是前端工程师》姐妹篇《前端进阶指南》
 
-在写电子书《[一步步搭建物联网系统](https://github.com/phodal/designiot)》的时候就为自己打造了一个生成HTML的生成脚本。
+2017 年 1 月份，看完村上春树的新书《我的职业是一个小说家》，我便萌发了写一个《我的职业是前端工程师》系列文章的想法——以个人视角来看前端领域的各种技术。整个系列的文章大概有 15 篇左右，从我是如何成为一个前端工程师，到各种前端框架的知识。
 
-在写电子书《[GitHub 漫游指南](https://github.com/phodal/github-roam)》，发现了 [Backbone Fundamentals](https://github.com/addyosmani/backbone-fundamentals)的构建电子书脚本。于是就复制了一份，然而却发现不支持生成中文的PDF——没有Tex模板。然后，就自己添加了一个Tex模板。
+在完成《我的职业是前端工程师》后，我便写一个前端进阶指南，可是期间发生了一些事情，便放弃了这个想法~~。现在，这本电子书就这么未完待续
 
-最近在整理一些文章、观点、想法，它就变成了《[RePractise](https://github.com/phodal/repractise)》——又一本电子书。:kissing_heart::kissing_heart:
+关注我的微信公众号（扫描下面的二维码或搜索 Phodal）.
 
-接着，接着，接着，就有了这个代码库。:smile::smile::smile:
+![QRCode](http://articles.phodal.com/qrcode.jpg)
 
-## Usage
+目录
+---
+*   [前端进阶指南](#前端进阶指南)
+    *   [什么是前端](#什么是前端)
+    *   [本书内容](#本书内容)
+*   [硬技能篇](#硬技能篇)
+*   [前端知识要点](#前端知识要点)
+    *   [前端应用的生命周期](#前端应用的生命周期)
+        *   [入门](#入门)
+        *   [中级篇](#中级篇)
+        *   [高级篇](#高级篇)
+        *   [工程化](#工程化)
+        *   [兼容性](#兼容性)
+        *   [前端特定](#前端特定)
+        *   [软件工程](#软件工程)
+        *   [调试](#调试)
+        *   [测试](#测试)
+        *   [性能与优化](#性能与优化)
+        *   [设计](#设计)
+        *   [SEO](#seo)
+*   [快速学习新的框架](#快速学习新的框架)
+    *   [快速学习是基本能力](#快速学习是基本能力)
+    *   [如何学习新框架：守-破-离](#如何学习新框架守-破-离)
+        *   [守：应用业务知识](#守应用业务知识)
+        *   [破：学习框架核心](#破学习框架核心)
+        *   [离：探索更多可能性](#离探索更多可能性)
+    *   [小结](#小结)
+    *   [选择合适的前端框架](#选择合适的前端框架)
+        *   [Angular，一站式提高生产力](#angular一站式提高生产力)
+        *   [React，组件化提高复用](#react组件化提高复用)
+        *   [Vue.js，简单也是提高效率](#vue.js简单也是提高效率)
+*   [构建系统：资深分界线](#构建系统资深分界线)
+    *   [为什么构建很重要](#为什么构建很重要)
+    *   [构建工具](#构建工具)
+    *   [构建流程](#构建流程)
+        *   [构建示例](#构建示例)
+        *   [自动刷新](#自动刷新)
+        *   [转译](#转译)
+        *   [预处理](#预处理)
+*   [什么是前端的架构能力](#什么是前端的架构能力)
+    *   [“标准”的 SPA 构架实践](#标准的-spa-构架实践)
+        *   [前后端分离](#前后端分离)
+        *   [无状态 API](#无状态-api)
+    *   [workflow](#workflow)
+        *   [前后端分离的工作方式](#前后端分离的工作方式)
+    *   [风格指南：StyleGuide](#风格指南styleguide)
+    *   [演进](#演进)
+    *   [最佳实践：框架](#最佳实践框架)
+        *   [jQuery + TinyMCE](#jquery-tinymce)
+        *   [jQuery + Vue](#jquery-vue)
+*   [自动化提高效率](#自动化提高效率)
+    *   [自动化测试加快上线流程](#自动化测试加快上线流程)
+        *   [测试](#测试-1)
+        *   [ui 测试](#ui-测试)
+        *   [截屏测试，](#截屏测试)
+    *   [自动构建](#自动构建)
+    *   [自动化部署](#自动化部署)
+        *   [持续集成](#持续集成)
+*   [前端应用的架构与设计模式](#前端应用的架构与设计模式)
+    *   [散弹式架构 -> jQuery](#散弹式架构---jquery)
+    *   [分层结构 MV*](#分层结构-mv)
+    *   [处理数据 pipe and filter](#处理数据-pipe-and-filter)
+    *   [数据显示 观察者模式](#数据显示-观察者模式)
+    *   [数据通讯](#数据通讯)
+        *   [消息通讯](#消息通讯)
+        *   [数据通讯：shared repository](#数据通讯shared-repository)
+        *   [数据通讯：local storage](#数据通讯local-storage)
+*   [软技能篇](#软技能篇)
+*   [在做业务的过程中提升技术](#在做业务的过程中提升技术)
+    *   [测试](#测试-2)
+    *   [代码可读性](#代码可读性)
+    *   [有意图的提升](#有意图的提升)
+*   [持续学习：走出下一个『jQuery』](#持续学习走出下一个jquery)
+    *   [jQuery 已经落后了？下一个 jQuery 已经出现了](#jquery-已经落后了下一个-jquery-已经出现了)
+    *   [持续学习](#持续学习)
+    *   [掌握思想](#掌握思想)
+    *   [后端技能](#后端技能)
+*   [软技能](#软技能)
+    *   [知识管理](#知识管理)
+    *   [Debug: 发现问题](#debug-发现问题)
+*   [扩展篇](#扩展篇)
+*   [前端知识体系的广度与深度](#前端知识体系的广度与深度)
+    *   [前端与后台的对比](#前端与后台的对比)
+    *   [用户体验设计](#用户体验设计)
+    *   [前端的广度](#前端的广度)
+*   [前端的趋势](#前端的趋势)
+    *   [微服务与微前端](#微服务与微前端)
+    *   [BFF](#bff)
+    *   [状态管理](#状态管理)
+    *   [跨平台](#跨平台)
+    *   [UI 生成](#ui-生成)
+*   [转型前端指南](#转型前端指南)
+    *   [改变](#改变)
+    *   [后台转前端的挑战](#后台转前端的挑战)
+    *   [其他编程领域转前端](#其他编程领域转前端)
+    *   [其他行业转前端](#其他行业转前端)
+        *   [劝退](#劝退)
+        *   [立意已决](#立意已决)
+*   [前端跨行指南](#前端跨行指南)
+    *   [移动开发：混合开发](#移动开发混合开发)
+    *   [桌面应用](#桌面应用)
+    *   [VR](#vr)
+    *   [硬件](#硬件)
+    *   [其它？](#其它)
 
-1. 运行init.sh
+LICENSE
+---
 
-```bash
-./init.sh
-```
-
-输入书名和作者
-
-2. 编译
-
-编译全部： epub、mobi、html、pdf、rtf
-
-```
-make all
-```
-
-编译特定： epub、mobi、html、pdf、rtf
-
-如
-
-```
-make html
-```
-
-## Setup
-
-1. 基本编译需要``pandoc``
-2. PDF要求环境Tex，推荐使用``TexLive``。
-3. mobi需要kindlegen。
-
-GNU/Linux和Mac OS可以使用
-
-```bash
-gem install kindlegen
-```
-
-Windows用户安装 Kindlegen 参见: [创建 Kindle 电子书 ](https://github.com/sethvincent/ebook/tree/master/kindlegen-mac/docs/chinese)
+[![Phodal's Article](http://brand.phodal.com/shields/article-small.svg)](https://www.phodal.com/) [![Phodal's Book](http://brand.phodal.com/shields/book-small.svg)](https://www.phodal.com/)
 
 
+© 2017 [Phodal Huang](https://www.phodal.com). This code is distributed under the Creative Commons Attribution-Noncommercial-No Derivative Works 3.0  License. See `LICENSE` in this directory.
+
+[待我代码编成，娶你为妻可好](http://www.xuntayizhan.com/blog/ji-ke-ai-qing-zhi-er-shi-dai-wo-dai-ma-bian-cheng-qu-ni-wei-qi-ke-hao-wan/)
